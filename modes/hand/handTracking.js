@@ -1,3 +1,13 @@
+// **Acknowledgements:**
+
+// **→**  ml5 face-mesh key points: https://editor.p5js.org/ml5/sketches/lCurUW1TT
+
+// →ml5 hand pose documentation: https://docs.ml5js.org/#/reference/handpose?id=detect-hand-keypoints-with-the-model
+
+// →two hand tracking youtube reference: https://youtu.be/BX8ibqq0MJU?si=7SORTEM-nYsCx6rz
+
+// → Open AI: I used ChatGPT to help me with brainstorming, helping me with some parts of the code blocks and debugging errors.
+
 //modes/hand/handTracking.js
 class HandTracking {
     constructor(p5Instance) {
@@ -458,21 +468,7 @@ class HandTracking {
                 this.particleSystem.addParticles(palmX, palmY, color, 20);
             }
         
-        // // Draw keypoints for each hand
-        // this.lastProcessedPredictions.forEach((hand, index) => {
-        //     // Detect gesture for this hand
-        //     this.currentGesture = this.detectGesture(hand.landmarks);
-        //     this.updateVolumeFromHandPosition(hand.landmarks, index);
-        //     this.updatePitchFromHandPosition(hand.landmarks, index);  
-        //     this.playGestureSound(this.currentGesture, index);
-            
-        //     // Add particles at palm position when gesture changes
-        //     if (this.currentGesture !== this.lastPlayedGesture) {
-        //         const palmX = hand.landmarks[0][0] * scale + xOffset;
-        //         const palmY = hand.landmarks[0][1] * scale + yOffset;
-        //         const color = this.gestureColors[this.currentGesture || 'unknown'];
-        //         this.particleSystem.addParticles(palmX, palmY, color, 20);
-        //     }
+    
 
             // Draw hand skeleton
             this.p.push();
@@ -525,52 +521,6 @@ class HandTracking {
         this.displayStatus();
     }
 
-
-    // displayStatus() {
-    //     this.p.fill(0, 0, 0, 80);
-    //     this.p.rect(10, this.p.height - 80, 300, 60, 10);
-    //     this.p.textSize(20);
-    //     this.p.textAlign(this.p.LEFT, this.p.TOP);
-        
-    //     let statusColor;
-    //     let gestureText = '';
-    //     switch (this.trackingStatus) {
-    //         case 'initializing':
-    //             statusColor = this.p.color(255, 255, 0);
-    //             gestureText = 'Initializing hand tracking...';
-    //             break;
-    //         case 'tracking':
-    //             statusColor = this.p.color(0, 255, 0);
-    //             gestureText = `Gesture: ${this.currentGesture || 'unknown'}`;
-    //             break;
-    //         case 'no_hand':
-    //             statusColor = this.p.color(255, 0, 0);
-    //             gestureText = 'No hand detected';
-    //             break;
-    //     }
-    
-    //     this.p.fill(statusColor);
-    //     this.p.text(gestureText, 20, this.p.height - 60);
-    
-    //     if (this.trackingStatus === 'tracking') {
-    //         this.p.textSize(16);
-    //         this.p.fill(255);
-            
-    //         // Display sound status
-    //         const soundStatus = this.soundEnabled ? 'Sound: ON' : 'Sound: OFF';
-    //         this.p.text(soundStatus, this.p.width - 120, 30);
-            
-    //         // Use handControls array for volume and pitch display
-    //         const volumeText = `Volume: ${Math.round(this.handControls[0].volume.current)}dB`;
-    //         this.p.text(volumeText, this.p.width - 150, 60);
-            
-    //         const pitchText = `Pitch: ${Math.round(this.handControls[0].pitch.current)} semitones`;
-    //         this.p.text(pitchText, this.p.width - 200, 90);
-            
-    //         const voiceStatus = this.voiceEnabled ? 'Voice: ON' : 'Voice: OFF';
-    //         this.p.text(voiceStatus, this.p.width - 120, 120);
-    //     }
-    // }
 
     displayStatus() {
         // Background for status display

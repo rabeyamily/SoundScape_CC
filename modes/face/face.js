@@ -1,4 +1,15 @@
-//modes/face/face.js
+// **Acknowledgements:**
+
+// **→**  ml5 face-mesh key points: https://editor.p5js.org/ml5/sketches/lCurUW1TT
+
+// →ml5 hand pose documentation: https://docs.ml5js.org/#/reference/handpose?id=detect-hand-keypoints-with-the-model
+
+// →two hand tracking youtube reference: https://youtu.be/BX8ibqq0MJU?si=7SORTEM-nYsCx6rz
+
+// → Open AI: I used ChatGPT to help me with brainstorming, helping me with some parts of the code blocks and debugging errors.
+
+
+// //modes/face/face.js
 class FaceMode {
     constructor() {
         this.initialized = false;
@@ -121,6 +132,7 @@ class FaceMode {
             
             p.fill(0, 255, 0);
             p.noStroke();
+            const offsetX = -340;
             p.circle(foreheadX, forehead[1], 10);
 
             this.handleFallingWords(p, foreheadX, forehead[1]);
